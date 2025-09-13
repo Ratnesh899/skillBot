@@ -1,8 +1,9 @@
+import os
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, ContextTypes
 
-# 🔑 Direct token
-TOKEN = "7964693727:AAFngnJyGyRoaTM0Ah2eQxAvPVeUqjngNlQ"
+# 🔑 Token from environment variable (safe for Railway)
+TOKEN = os.getenv("TOKEN")  # Railway pe TOKEN set karna hoga
 
 courses = [
     {"name": "Full Stack Development (Apni Kaksha)", "price": "₹299"},
