@@ -1,11 +1,9 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, ContextTypes
-import os
 
-# 🔑 Token from environment variable (safe for Render)
-TOKEN = os.getenv("TOKEN")  # Render me TOKEN env variable set karna hai
+# 🔑 Direct token
+TOKEN = "7964693727:AAFngnJyGyRoaTM0Ah2eQxAvPVeUqjngNlQ"
 
-# 📚 Courses + Prices
 courses = [
     {"name": "Full Stack Development (Apni Kaksha)", "price": "₹299"},
     {"name": "Data Science PW Gate", "price": "₹1000"},
@@ -15,7 +13,6 @@ courses = [
     {"name": "Generative AI + DevOps", "price": "₹699"}
 ]
 
-# /start command handler
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = "👋 Hello! Welcome to Skill Development Bot.\n\n📚 Available Courses & Prices:\n"
     for c in courses:
@@ -28,7 +25,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text(text, reply_markup=reply_markup)
 
-# Bot start
 def main():
     app = Application.builder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
