@@ -1,8 +1,9 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, ContextTypes
+import os
 
-# 🔑 Direct token
-TOKEN = "7964693727:AAFngnJyGyRoaTM0Ah2eQxAvPVeUqjngNlQ"
+# 🔑 Token from environment variable (safe for Render)
+TOKEN = os.getenv("TOKEN")  # Render me TOKEN env variable set karna hai
 
 # 📚 Courses + Prices
 courses = [
